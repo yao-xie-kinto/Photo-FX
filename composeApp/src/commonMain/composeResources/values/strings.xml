@@ -6,6 +6,7 @@
     <string name="effect_gallery_chromatic_aberration">Chromatic Aberration</string>
     <string name="effect_gallery_smooth_pixelation">Smooth Pixelation</string>
     <string name="effect_gallery_vignette">Vignette</string>
+    <string name="effect_gallery_saturation">Saturation</string>
     <string name="effect_selection_image_with_effect">Selected Image with Effect</string>
     <string name="effect_selection_title">Select an effect</string>
     <string name="generic_accept">Accept</string>

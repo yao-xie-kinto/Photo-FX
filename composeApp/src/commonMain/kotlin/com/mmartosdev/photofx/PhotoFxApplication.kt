@@ -18,6 +18,7 @@ import photo_fx.composeapp.generated.resources.img_03
 import photo_fx.composeapp.generated.resources.img_04
 import photo_fx.composeapp.generated.resources.img_05
 import photo_fx.composeapp.generated.resources.img_06
+import photo_fx.composeapp.generated.resources.img_07
 
 @Composable
 internal fun PhotoFxApplication(
@@ -30,11 +31,13 @@ internal fun PhotoFxApplication(
         imageResource(Res.drawable.img_04),
         imageResource(Res.drawable.img_05),
         imageResource(Res.drawable.img_06),
+        imageResource(Res.drawable.img_07),
     )
     val effects = persistentListOf(
         EffectConfig.Vignette(),
         EffectConfig.SmoothPixelation(),
         EffectConfig.ChromaticAberration(),
+        EffectConfig.Saturation()
     )
     PhotoFx(
         images = images,

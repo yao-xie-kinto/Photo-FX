@@ -51,7 +51,7 @@ fun EffectSelection(
         },
         additionalContent = {
             EffectGallery(
-                columns = 3,
+                columns = 4,
                 imageBitmap = selectedImage,
                 effects = effects,
                 selectedEffect = selectedEffect,

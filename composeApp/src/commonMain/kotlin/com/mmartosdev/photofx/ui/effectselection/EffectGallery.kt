@@ -22,6 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.mmartosdev.photofx.components.SelectionIndicator
 import com.mmartosdev.photofx.modifiers.chromaticAberrationShader
+import com.mmartosdev.photofx.modifiers.saturationShader
 import com.mmartosdev.photofx.modifiers.smoothPixelationShader
 import com.mmartosdev.photofx.modifiers.vignetteShader
 import com.mmartosdev.photofx.ui.EffectConfig
@@ -29,6 +30,7 @@ import kotlinx.collections.immutable.ImmutableList
 import org.jetbrains.compose.resources.stringResource
 import photo_fx.composeapp.generated.resources.Res
 import photo_fx.composeapp.generated.resources.effect_gallery_chromatic_aberration
+import photo_fx.composeapp.generated.resources.effect_gallery_saturation
 import photo_fx.composeapp.generated.resources.effect_gallery_smooth_pixelation
 import photo_fx.composeapp.generated.resources.effect_gallery_vignette
 
@@ -102,6 +104,9 @@ fun Modifier.applyEffect(effectConfig: EffectConfig): Modifier =
 
         is EffectConfig.ChromaticAberration ->
             Modifier.chromaticAberrationShader(effectConfig.intensity)
+
+        is EffectConfig.Saturation ->
+            Modifier.saturationShader(effectConfig.saturation)
     }
 
 @Composable
@@ -115,4 +120,7 @@ private fun EffectConfig.contentDescription() =
 
         is EffectConfig.ChromaticAberration ->
             stringResource(Res.string.effect_gallery_chromatic_aberration)
+
+        is EffectConfig.Saturation ->
+            stringResource(Res.string.effect_gallery_saturation)
     }

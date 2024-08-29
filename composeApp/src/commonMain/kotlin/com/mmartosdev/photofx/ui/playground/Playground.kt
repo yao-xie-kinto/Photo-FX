@@ -47,6 +47,7 @@ import photo_fx.composeapp.generated.resources.effect_controls_chromatic_aberrat
 import photo_fx.composeapp.generated.resources.effect_controls_smooth_pixelation_pixel_size
 import photo_fx.composeapp.generated.resources.effect_controls_vignette_decay_factor
 import photo_fx.composeapp.generated.resources.effect_controls_vignette_intensity
+import photo_fx.composeapp.generated.resources.effect_gallery_saturation
 import photo_fx.composeapp.generated.resources.effect_selection_image_with_effect
 import photo_fx.composeapp.generated.resources.generic_accept
 import photo_fx.composeapp.generated.resources.generic_reset
@@ -96,7 +97,7 @@ fun PlaygroundScreen(
                 effectConfig = effectConfig,
                 onEffectConfigChanged = viewModel::onEffectConfigChanged,
                 modifier = Modifier
-                    .padding(horizontal = 16.dp),
+                    .padding(horizontal = 32.dp),
             )
         },
         modifier = modifier,
@@ -126,6 +127,13 @@ private fun EffectControls(
 
         is EffectConfig.ChromaticAberration ->
             ChromaticAberrationEffectControls(
+                effectConfig = effectConfig,
+                onEffectConfigChanged = onEffectConfigChanged,
+                modifier = modifier,
+            )
+
+        is EffectConfig.Saturation ->
+            SaturationEffectControls(
                 effectConfig = effectConfig,
                 onEffectConfigChanged = onEffectConfigChanged,
                 modifier = modifier,
@@ -175,6 +183,26 @@ private fun SmoothPixelationEffectControls(
             value = effectConfig.pixelSize,
             onValueChanged = { onEffectConfigChanged(effectConfig.copy(pixelSize = it)) },
             valueRange = 1f..4f,
+        )
+    }
+}
+
+@Composable
+private fun SaturationEffectControls(
+    effectConfig: EffectConfig.Saturation,
+    onEffectConfigChanged: (EffectConfig) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        verticalArrangement = spacedBy(16.dp),
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
+    ) {
+        SlidingFactor(
+            name = stringResource(Res.string.effect_gallery_saturation),
+            value = effectConfig.saturation,
+            onValueChanged = { onEffectConfigChanged(effectConfig.copy(saturation = it)) },
+            valueRange = 100f..500f,
         )
     }
 }
