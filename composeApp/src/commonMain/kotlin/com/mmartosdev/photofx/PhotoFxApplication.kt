@@ -19,6 +19,7 @@ import photo_fx.composeapp.generated.resources.img_04
 import photo_fx.composeapp.generated.resources.img_05
 import photo_fx.composeapp.generated.resources.img_06
 import photo_fx.composeapp.generated.resources.img_07
+import photo_fx.composeapp.generated.resources.img_08
 
 @Composable
 internal fun PhotoFxApplication(
@@ -32,6 +33,7 @@ internal fun PhotoFxApplication(
         imageResource(Res.drawable.img_05),
         imageResource(Res.drawable.img_06),
         imageResource(Res.drawable.img_07),
+        imageResource(Res.drawable.img_08),
     )
     val effects = persistentListOf(
         EffectConfig.Vignette(),
